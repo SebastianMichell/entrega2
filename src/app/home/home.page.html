@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar >
+  <ion-toolbar>
     <img src="https://cdcolegiolosleonesquilpue.cl/wp-content/uploads/2019/04/duoc-uc.jpeg" />
   </ion-toolbar>
 </ion-header>
@@ -24,7 +24,9 @@
               placeholder="Ingrese su Contraseña">
             </ion-input>
           </ion-item>
-          <ion-checkbox> <font size="4"> Recuerdame </font></ion-checkbox><br />
+          <ion-checkbox>
+            <font size="4"> Recuerdame </font>
+          </ion-checkbox><br />
           <ion-button (click)="enviarInformacion()" expand="full">Conectar</ion-button>
           <br>
 
@@ -32,22 +34,8 @@
             Registrarse
           </ion-button><br>
 
-          
-          <ion-button  expand="full" id="present-alert" >
-            Olvide mi contraseña
-          </ion-button>
-          <ion-alert
-            trigger="present-alert"
-            header="Ingrese Nueva Contraseña"
-            [buttons]="alertButtons"
-            [inputs]="alertInputs"
-          ></ion-alert>
 
-          <ion-button expand="full" (click)="cambiarContrasena()">
-            Cambiar Contraseña
-          </ion-button>
 
-          <ion-alert trigger="present-alert" header="Registro" subHeader="{{mensaje}}" [buttons]="alertButtons"></ion-alert>
           <!-- Modal Section Begin -->
           <ion-modal trigger="open-modal">
             <ng-template>
@@ -65,7 +53,7 @@
                   <ion-input [(ngModel)]="user.password" label="Contraseña" type="password" labelPlacement="floating"
                     placeholder="Ingrese su Contraseña"></ion-input>
                 </ion-item>
-                
+
                 <ion-button id="present-alert" expand="full" (click)="confirm()" [strong]="true">
                   Confirmar
                 </ion-button><br>
@@ -81,6 +69,11 @@
               </ion-content>
             </ng-template>
           </ion-modal>
+          <ion-button id="present-alert" expand="full" (click)="acept()" [strong]="true">
+            Olvide mi contraseña
+          </ion-button><br>
+        
+
 
 
 

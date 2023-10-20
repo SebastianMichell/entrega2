@@ -3,8 +3,6 @@ import { Router, NavigationExtras } from '@angular/router';
 import { IonTitle,AnimationController, IonModal} from '@ionic/angular';
 import type { Animation } from '@ionic/angular';
 import { AutenticacionService } from '../servicios/autenticacion.service';
-import { Storage } from '@ionic/storage-angular'; // Importa Ionic Storage
-
 
 
 @Component({
@@ -26,7 +24,7 @@ export class HomePage {
   //ViewChild(TipoComponente,{read:ElementRef}) nombre!:ElementRef<HTMLTipoObjetoElement>
   @ViewChild(IonTitle,{read:ElementRef}) titulo!:ElementRef<HTMLIonTitleElement>;
  
-  constructor(private router: Router,private animationCtrl:AnimationController, private auth: AutenticacionService, private storage: Storage) { }
+  constructor(private router: Router,private animationCtrl:AnimationController, private auth: AutenticacionService) { }
   private imagen!:Animation;
   private titul!:Animation;
   public mensaje = "";
@@ -90,21 +88,26 @@ export class HomePage {
       }
     })
   }
-  async cambiarContrasena() {
-    // Verifica si el usuario está autenticado
-    if (this.auth.autenticado) {
-      // Realiza la lógica para cambiar la contraseña
-      const nuevaContrasena = 'NuevaContrasena'; // Reemplaza con la nueva contraseña
 
-      // Guarda la nueva contraseña en Ionic Storage
-      await this.storage.set('contrasena', nuevaContrasena);
+  acept() {
+  if (this.user.usuario && this.user.password) {
+    this.auth.changePassword(this.user.usuario, this.user.password).then((res) => {
+      if (res) {
+        this.estado = "Contraseña cambiada con éxito";
+      } else {
+        this.estado = "Usuario no encontrado, se ha registrado como un nuevo usuario.";
 
-      // Puedes mostrar un mensaje de éxito o realizar otra acción aquí
-      console.log('Contraseña cambiada con éxito.');
-    } else {
-      // El usuario no está autenticado, muestra un mensaje de error
-      console.log('Debe autenticarse para cambiar la contraseña.');
-    }
+        // En lugar de registrar el usuario aquí, deberías proporcionar una opción para registrarse desde la página de inicio de sesión.
+        // Puedes abrir una modal para el registro o redirigir al usuario a una página de registro.
+
+        // Ejemplo de redirección a la página de registro:
+        this.router.navigate(['/registro']); // Asegúrate de crear una página de registro en tu aplicación.
+      }
+    });
+  } else {
+    this.mensaje = "Ingrese su nombre de usuario y una nueva contraseña Y vuevla a hacer click en  'Olvide mi Contraseña'.";
   }
+}
+
 
 }

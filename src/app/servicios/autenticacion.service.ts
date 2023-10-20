@@ -52,7 +52,26 @@ export class AutenticacionService {
     this.autenticado = false;
     return false;
 
+
   }
+
+  async changePassword(username: string, newPassword: string): Promise<boolean> {
+    const users = await this.local?.get('users') || [];
+    const userIndex = users.findIndex((us: User) => us.username === username);
+  
+    if (userIndex !== -1) {
+      // Cambia la contraseña del usuario
+      users[userIndex].password = newPassword;
+  
+      await this.local?.set('users', users);
+      console.log("Contraseña cambiada con éxito");
+      return true;
+    } else {
+      console.log("Usuario no encontrado");
+      return false;
+    }
+  }
+  
 
   logout() {
     this.autenticado = false;
