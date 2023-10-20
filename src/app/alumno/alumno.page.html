@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <img src="https://cdcolegiolosleonesquilpue.cl/wp-content/uploads/2019/04/duoc-uc.jpeg" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-avatar id="avatar" #avatar>
+      <img alt="Silhouette of a person's head"
+        src="https://i.pinimg.com/736x/19/40/ec/1940ec58e552b291fe05188f7bb78a7b.jpg" />
+    </ion-avatar>
+    <br>
+    <h1 id="titulo">
+      Bienvenido!
+    </h1>
+    <ion-label>
+      <p>Usuario: {{ user.usuario }}</p>
+    </ion-label><br><br>
+
+    
+    <ion-button id="present-alert" #boton (click)="play()">Escanear QR</ion-button>
+    <ion-alert
+      trigger="present-alert"
+      header="Seccion 003-D"
+      subHeader="{{ currentDate }}" 
+      message="Usted esta presente"
+      [buttons]="alertButtons"
+    ></ion-alert>
+
+    <hr>
+
+
+    <br>
+
+  </div>
+  <ion-button id="boton-salir" expand="full" color="danger" [routerLink]="['/home']">Salir</ion-button>
+</ion-content>
+

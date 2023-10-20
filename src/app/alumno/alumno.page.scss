@@ -1,0 +1,74 @@
+#container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  
+  #titulo {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 40px;
+    color: black;
+  }
+  
+  ion-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+  }
+  
+  #avatar{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    font-weight: bolder;
+    border: 1px solid black;
+  }
+  
+  ion-label{
+    color: rgb(36, 36, 36);
+  }
+  
+  #present-alert {
+    margin: 10px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none;
+    transform:translateY(100%);  
+  }
+  
+  #present-alert-2{
+    margin: 10px; 
+    background-color: #28a745; 
+    color: white; 
+    border: none;
+    transform:translateY(200%); 
+  }
+  
+  #boton-salir {
+    position: absolute;
+    bottom: 10px; 
+    right: 10px; 
+  }
+  
+  ion-header{
+    color: #002e55;
+  }
+  ion-toolbar {
+    --background: #022f58;
+    --color: white;
+  
+    --border-color: #022f58;
+    --border-width: 4px 0;
+    --border-style: double;
+  
+    --min-height: 200px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+  }
+  
